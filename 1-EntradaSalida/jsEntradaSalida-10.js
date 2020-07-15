@@ -8,7 +8,9 @@ function mostrarAumento()
 	var importe;
 	var resultado;
 
-	importe = parseInt(txtIdImporte.value);
+	importe = txtIdImporte.value;
+	importe = parseInt(importe);
+	
 	resultado = importe - (importe/4);
 	txtIdResultado.value = resultado;
 }

@@ -8,7 +8,9 @@ function mostrarAumento()
 	var sueldo;
 	var resultado;
 
-	sueldo = parseInt(txtIdSueldo.value);
+	sueldo = txtIdSueldo.value;
+	sueldo = parseInt(sueldo);
+
 	resultado = sueldo + (sueldo/10);
 	txtIdResultado.value = resultado;
 }

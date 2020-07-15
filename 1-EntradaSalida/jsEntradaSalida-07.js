@@ -46,12 +46,12 @@ function dividir()
 {
 	var num1;
 	var num2;
-	var dividir;
+	var division;
 
 	num1 = parseInt(txtIdNumeroUno.value);
 	num2 = parseInt(txtIdNumeroDos.value);
 
-	dividir = num1 / num2;
-	alert("La division es "+dividir);
+	division = num1 / num2;
+	alert("La division es "+division);
 }
 

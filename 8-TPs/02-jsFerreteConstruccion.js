@@ -32,9 +32,9 @@ function Circulo ()
     radio = txtIdRadio.value;
     radio = parseInt(radio);
 
-    perimetro = 2 * 3.14 * radio;
+    perimetro = 2 * Math.PI * radio;
     totalHilos = 3 * perimetro;
-    alert("Se deberan comprar "+totalHilos+" metros de hilo");
+    alert("Se deberan comprar "+totalHilos.toFixed(2)+" metros de hilo");
 
 }
 

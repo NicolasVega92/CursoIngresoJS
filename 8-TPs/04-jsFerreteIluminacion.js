@@ -15,7 +15,6 @@ function CalcularPrecio ()
     var precio;
     var precioFinal;
     var impuesto;
-    var precioFinalConImpuesto;
 
     cantidadLamparas = txtIdCantidad.value;
     cantidadLamparas = parseInt(cantidadLamparas);
@@ -24,109 +23,67 @@ function CalcularPrecio ()
 
     precio = cantidadLamparas * 35;    
 
-
-    /*
-    TIENE Q SER 
-    IF (-----)
-    {
-
-    }
-    ELSE
-    {
-
-    }
-    
-    IF(----)
-    {
-
-    }
-    */
-
-
-
-
-
-
-
-
+    impuesto = 0;
 
     if( cantidadLamparas > 5)
-    {      
+    {
         precioFinal = precio - (precio * 0.5);
-
-        if(precioFinal < 121)
-        {
-            txtIdprecioDescuento.value = precioFinal;  
-            alert("Usted pago $"+precioFinal);
-        }   
-    }
-    else if( cantidadLamparas == 5)
-    {
-        if(compania == "ArgentinaLuz")
-        {
-            precioFinal = precio - (precio * 0.4);
-            txtIdprecioDescuento.value = precioFinal;  
-            alert("Usted pago $"+precioFinal); 
-        }
-        else
-        {
-            precioFinal = precio - (precio * 0.3);
-            txtIdprecioDescuento.value = precioFinal;   
-        }
-    }
-    else if( cantidadLamparas == 4)
-    {
-        if(compania == "ArgentinaLuz" || compania == "FelipeLamparas")
-        {
-            precioFinal = precio - (precio * 0.25);
-            txtIdprecioDescuento.value = precioFinal;  
-            alert("Usted pago $"+precioFinal);
-        }
-        else
-        {
-            precioFinal = precio - (precio * 0.2);
-            txtIdprecioDescuento.value = precioFinal;  
-            alert("Usted pago $"+precioFinal);
-        }
-    }
-    else if( cantidadLamparas == 3)
-    {
-        if(compania == "ArgentinaLuz")
-        {
-            precioFinal = precio - (precio * 0.15);
-            txtIdprecioDescuento.value = precioFinal;  
-            alert("Usted pago $"+precioFinal);
-        }
-        else
-        { 
-            if(compania == "FelipeLamparas")
-            {
-                precioFinal = precio - (precio * 0.10);
-                txtIdprecioDescuento.value = precioFinal;  
-                alert("Usted pago $"+precioFinal);
-            }
-            else
-            {
-                precioFinal = precio - (precio * 0.05);
-                txtIdprecioDescuento.value = precioFinal;  
-                alert("Usted pago $"+precioFinal);
-            }
-        }
     }
     else
     {
-        precioFinal = precio;
-        txtIdprecioDescuento.value = precioFinal;  
-        alert("Usted pago $"+precioFinal);
-       
+        if(cantidadLamparas == 5)
+        {
+            if(compania == "ArgentinaLuz")
+            {
+                precioFinal = precio - (precio * 0.4);
+            }
+            else
+            {
+                precioFinal = precio - (precio * 0.3); 
+            }
+        } 
+        else
+        {
+            if(cantidadLamparas == 4)
+            {
+                if(compania == "ArgentinaLuz" || compania == "FelipeLamparas" )
+                {
+                    precioFinal = precio - (precio * 0.25);
+                }
+                else
+                {
+                    precioFinal = precio - (precio * 0.20);
+                }
+            }
+            else
+            {
+                if(cantidadLamparas == 3)
+                {
+                    if(compania == "ArgentinaLuz")
+                    {
+                        precioFinal = precio - (precio * 0.15);
+                    }
+                    else
+                    {
+                        if(compania == "FelipeLamparas")
+                        {
+                            precioFinal = precio - (precio * 0.10);
+                        }
+                        else
+                        {
+                            precioFinal = precio - (precio * 0.05);
+                        }
+                    }
+                } 
+            }
+        }
     }
 
-    if(precioFinal > 120)
+    if( precioFinal > 120)
     {
-        impuesto = precioFinal * 0.1; 
-        precioFinalConImpuesto = precioFinal + impuesto;
-        txtIdprecioDescuento.value = precioFinalConImpuesto;
-        
-        alert("Usted pago $"+precioFinalConImpuesto+" siendo $"+impuesto+" el monto del impuesto");
+        impuesto = precioFinal * 0.1;
+        alert("Usted pago $"+ impuesto +" de IIBB" )
     }
+
+    txtIdprecioDescuento.value = precioFinal + impuesto;
 }

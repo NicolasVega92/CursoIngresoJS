@@ -17,6 +17,9 @@ function mostrar()
 		case "Enero":
 		case "Febrero":
 			alert("Falta para el invierno");
+			break;
+		default:
+			alert("Y ahora?");
 	}
 
 

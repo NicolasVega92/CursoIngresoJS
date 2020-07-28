@@ -15,6 +15,9 @@ function CalcularPrecio ()
     var precio;
     var precioFinal;
     var impuesto;
+    var descuento;
+
+    
 
     cantidadLamparas = txtIdCantidad.value;
     cantidadLamparas = parseInt(cantidadLamparas);
@@ -22,8 +25,13 @@ function CalcularPrecio ()
     compania = Marca.value;
 
     precio = cantidadLamparas * 35;    
-
+    precioFinal = 0;
+    descuento = 0;
     impuesto = 0;
+
+
+    /*
+
 
     if( cantidadLamparas > 5)
     {
@@ -83,6 +91,77 @@ function CalcularPrecio ()
     {
         impuesto = precioFinal * 0.1;
         alert("Usted pago $"+ impuesto +" de IIBB" )
+    }
+
+    txtIdprecioDescuento.value = precioFinal + impuesto;
+
+    */
+
+    if(cantidadLamparas < 3)
+    {
+        descuento = 0;
+        precioFinal = precio;
+        txtIdprecioDescuento.value = precioFinal;
+    }
+    else
+    {
+        switch(cantidadLamparas)
+        {
+            case 5:
+                if(compania == "ArgentinaLuz")
+                {
+                    descuento = 0.4;
+                    //precioFinal = precio - (precio * 0.4);
+                }
+                else
+                {
+                    descuento = 0.3;
+                }     
+                break;       
+    
+            case 4:
+                if(compania == "ArgentinaLuz" || compania == "FelipeLamparas")
+                {
+                    descuento = 0.25;
+                }
+                else
+                {
+                    descuento = 0.2;
+                }
+                break; 
+            
+            case 3:
+                if(compania == "ArgentinaLuz")
+                {
+                    descuento = 0.15;
+                }
+                else
+                {
+                    if(compania == "FelipeLamparas")
+                    {
+                        descuento = 0.10;
+                    }
+                    else
+                    {
+                        descuento = 0.05;
+                    }
+                }
+                break; 
+    
+            default:
+                descuento = 0.5;
+        }
+    
+    
+        precioFinal = precio - (precio * descuento);
+    
+    
+        if( precioFinal > 120)
+        {
+            impuesto = precioFinal * 0.1;
+            alert("Usted pago $"+ impuesto +" de IIBB" )
+        }
+    
     }
 
     txtIdprecioDescuento.value = precioFinal + impuesto;

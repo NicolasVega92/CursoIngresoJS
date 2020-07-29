@@ -99,7 +99,6 @@ function CalcularPrecio ()
 
     if(cantidadLamparas < 3)
     {
-        descuento = 0;
         precioFinal = precio;
         txtIdprecioDescuento.value = precioFinal;
     }
@@ -108,6 +107,17 @@ function CalcularPrecio ()
         switch(cantidadLamparas)
         {
             case 5:
+                switch(compania)
+                {
+                    case "ArgentinaLuz":
+                        descuento = 0.4;
+                        break;
+                    default:
+                        descuento = 0.3;
+                }
+                break;
+
+                /*
                 if(compania == "ArgentinaLuz")
                 {
                     descuento = 0.4;
@@ -118,8 +128,19 @@ function CalcularPrecio ()
                     descuento = 0.3;
                 }     
                 break;       
-    
+                */
             case 4:
+                switch(compania)
+                {
+                    case "ArgentinaLuz":
+                    case "FelipeLamparas":
+                        descuento = 0.25;
+                        break;
+                    default:
+                        descuento = 0.2;
+                }
+                break;
+                /*
                 if(compania == "ArgentinaLuz" || compania == "FelipeLamparas")
                 {
                     descuento = 0.25;
@@ -129,8 +150,23 @@ function CalcularPrecio ()
                     descuento = 0.2;
                 }
                 break; 
-            
+                */
             case 3:
+                switch(compania)
+                {
+                    case "ArgentinaLuz":
+                        descuento = 0.15;
+                        break;
+                    
+                    case "FelipeLamparas":
+                        descuento = 0.1;
+                        break;
+                    
+                    default:
+                        descuento = 0.05;
+                }
+                break;
+                /*
                 if(compania == "ArgentinaLuz")
                 {
                     descuento = 0.15;
@@ -147,6 +183,7 @@ function CalcularPrecio ()
                     }
                 }
                 break; 
+                */
     
             default:
                 descuento = 0.5;

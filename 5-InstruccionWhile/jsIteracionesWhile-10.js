@@ -13,17 +13,83 @@ hasta que el usuario quiera, mostrar:
 function mostrar()
 {
 	//declarar contadores y variables 
+	var numero;
 	var respuesta;
-	var numeroIngresado;
-	var sumaNegativos=0;
+	var sumaNegativos;
+	var sumaPositovs;
+	var cantPositivos;
+	var cantNegativos;
+	var cantCeros;
+	var cantPares;
+	var promedioPositivos;
+	var promedioNegativos;
+	var diferencia;
 
-	respuesta="si";
+	sumaNegativos = 0;
+	sumaPositovs = 0;
+	cantCeros = 0;
+	cantNegativos = 0;
+	cantPositivos = 0;
+	cantPares = 0;
+	promedioNegativos = 0;
+	promedioPositivos = 0;
+	diferencia = 0;
 
-	while(respuesta=="si")
+	respuesta= true;
+
+	do
 	{
-		
-		respuesta=prompt("desea continuar?");
-	}//fin del while
+		do
+		{
+			numero = prompt("Ingrese un numero: ");
+			numero = parseInt(numero);
+		}
+		while(isNaN(numero));
 
-	document.write("la suma de negativos es :"+sumaNegativos);
+		if(numero % 2 == 0)
+		{
+			cantPares++;
+		}
+
+		if(numero > 0)
+		{
+			cantPositivos++;
+			sumaPositovs += numero;
+		}
+		else
+		{
+			if(numero < 0)
+			{
+				cantNegativos++;
+				sumaNegativos += numero;
+			}
+			else
+			{
+				cantCeros++;
+			}
+		}
+
+
+		respuesta=confirm("desea continuar?");
+	}
+	while(respuesta==true);
+	
+	promedioPositivos = sumaPositovs / cantPositivos;
+	promedioPositivos = promedioPositivos.toFixed(2);
+
+	promedioNegativos = sumaNegativos / cantNegativos;
+	promedioNegativos = promedioNegativos.toFixed(2);
+
+	diferencia = sumaNegativos + sumaPositovs;
+
+	//fin del while
+console.log(sumaNegativos);
+console.log(sumaPositovs);
+console.log(cantCeros);
+console.log(cantNegativos);
+console.log(cantPositivos);
+console.log(cantPares);
+console.log(promedioPositivos);
+console.log(promedioNegativos);
+console.log(diferencia);
 }//FIN DE LA FUNCIÓN

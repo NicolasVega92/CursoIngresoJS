@@ -1,24 +1,21 @@
 function mostrar()
 {
 	var numero;
-	var contador;
+	var contadorDivisores;
 
-	contador = 0;
-
-	numero = prompt("Introduce un numero: ");
+	numero = prompt("Ingrese un numero: ");
 	numero = parseInt(numero);
 
-	for(var i = 1; i<=numero ; i++ )
+	contadorDivisores = 0;
+
+	for(var i = 1; i <= numero ; i++ )
 	{
-		if(numero % i == 0)
+		if( numero % i == 0)
 		{
-			console.log("Los divisores son: "+i);
-			contador++;
+			console.log(i);
+			contadorDivisores++;
 		}
 	}
-
-	console.log("La cantidad de divisores es: "+contador);
 	
-
-
+	console.log("Los divisores de "+numero+" son "+contadorDivisores);
 }//FIN DE LA FUNCIÓN

@@ -28,11 +28,11 @@ function mostrar()
 	cantCompraBarbijo = 0;
 	cantCompraJabón = 0;
 	promedio = 0;
-	i=0;
 
 	//DO siempre entra por lo menos una vez en el loop. la diferencia con el While. 
-	
-	do{
+	//Usar FOR debido a que ya se la cantidad de loops que debe realizar el pedido. 
+	for(var i = 0; i < 5 ; i++)
+	{
 		//PRODUCTO
 		producto = prompt("Ingrese un producto: ");
 
@@ -103,10 +103,7 @@ function mostrar()
 
 		}
 
-		//CONTADOR 
-		i++;
-
-	}while(i < 4);
+	}
 
 
 

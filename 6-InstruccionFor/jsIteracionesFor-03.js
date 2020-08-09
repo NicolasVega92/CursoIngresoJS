@@ -1,7 +1,7 @@
 function mostrar()
 {
 
-	var repetciones 
+	var repetciones;
 	
 	repeticiones = prompt("ingrese el número de repeticiones");
 	repeticiones = parseInt(repeticiones);

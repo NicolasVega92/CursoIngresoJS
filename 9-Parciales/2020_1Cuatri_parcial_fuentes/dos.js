@@ -26,37 +26,43 @@ function mostrar()
 
   acumuladorDeBolsas=0;
   precioBrutoTotal=0;
-  respuesta="s";
-  while(respuesta=="s")
-  {
+  respuesta=true;
 
+  while(respuesta==true)
+  {
+    //TIPO
   	tipo=prompt("ingrese tipo");
   	while(tipo!="arena"&&tipo!="cal"&&tipo!="cemento")
   	{
   		tipo=prompt("error, ingrese tipo");
-  	}
+    }
+    
+    //CANTIDAD DE BOLSAS
   	cantidadDeBolsas=prompt("ingrese cantidad de bolsas");
   	cantidadDeBolsas=parseInt(cantidadDeBolsas);
-  	while(cantidadDeBolsas<1)
+  	while(cantidadDeBolsas<1 || isNaN(cantidadDeBolsas))
   	{
   		cantidadDeBolsas=prompt("error ,ingrese cantidad de bolsas");
   		cantidadDeBolsas=parseInt(cantidadDeBolsas);
   	}
 
-
-
+    //PRECIO
   	precioPorBolsa=prompt("ingrese cantidad de bolsas");
   	precioPorBolsa=parseInt(precioPorBolsa);
-  	while(precioPorBolsa<1)
+  	while(precioPorBolsa<1 || isNaN(precioPorBolsa))
   	{
   		precioPorBolsa=prompt("error ,ingrese cantidad de bolsas");
   		precioPorBolsa=parseInt(precioPorBolsa);
   	}
 
-  	acumuladorDeBolsas=acumuladorDeBolsas+cantidadDeBolsas;
-  	precioBrutoProducto=cantidadDeBolsas*precioPorBolsa;
+    //ACUMULADOR
+    acumuladorDeBolsas=acumuladorDeBolsas+cantidadDeBolsas;
+    
+    precioBrutoProducto=cantidadDeBolsas*precioPorBolsa;
+    
   	precioBrutoTotal=precioBrutoTotal+precioBrutoProducto;
 
+    //TIPO MAS CARO
   	if(banderaDelPrimerProducto=="es el primero")
   	{
   		banderaDelPrimerProducto="ya paso";
@@ -74,7 +80,7 @@ function mostrar()
 
 
 
-
+    //ACUMULADOR DE TIPOS
   	switch(tipo)
   	{
   		case "arena":
@@ -95,7 +101,7 @@ function mostrar()
 
 
 
-  	respuesta=prompt("seguir ?")
+  	respuesta=confirm("Desea continuar?");
   }//termine
 
   if(acumuladorArena>acumuladorCemento&&acumuladorArena>acumuladorCal)
